@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Converter</title>
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+        <style>
+            body{
+                margin-top: 70px;
+                background: #333333;
+                color: #ffffff;
+            }
+
+            .card-primary{
+                background-color: #d81b60;
+            }
+            .card-success{
+                background-color: #4caf50;
+            }
+            .card-danger{
+                background-color: #9c27b0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+                    <form action="">
+                        <div class="form-group">
+                            <input type="number" class="form-control-lg
+                                form-control" placeholder="Enter Pounds..."
+                                id="lbsInput">
+                        </div>
+                    </form>
+                    <div id="output">
+                        <div class="card card-primary mb-2">
+                            <div class="card-block">
+                                <h5>Grams:</h5>
+                                <div id="gramsOutput"></div>
+                            </div>
+                        </div>
+
+                        <div class="card card-success mb-2">
+                            <div class="card-block">
+                                <h5>Kilograms:</h5>
+                                <div id="kgOutput"></div>
+                            </div>
+                        </div>
+
+                        <div class="card card-danger">
+                            <div class="card-block">
+                                <h5>Ounces:</h5>
+                                <div id="ozOutput"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('output').style.visibility = 'hidden';
+            document.getElementById('lbsInput').addEventListener('input',function(e){
+                let lbs = e.target.value;
+                // console.log(lbs);
+                document.getElementById('output').style.visibility = 'visible';
+                document.getElementById('gramsOutput').innerHTML = lbs/0.0022046;
+                document.getElementById('kgOutput').innerHTML = lbs/2.2046;
+                document.getElementById('ozOutput').innerHTML = lbs*16;
+
+            })
+        </script>
+    </body>
+</html>
